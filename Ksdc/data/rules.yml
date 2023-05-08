@@ -1,0 +1,360 @@
+version: "3.1"
+
+rules:
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: get name 
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: name_form
+  - active_loop: name_form
+  # - intent: myname
+  # - action: action_name_get_info
+#   - intent: myname
+#   - action: action_name_print_info
+#   - action: action_ph_no_info
+#   - action: action_email_info
+#   - action: action_tell_details
+#   - action: utter_ask_menu
+
+#   - action: action_validate_contact_info
+#   - action: name_form
+#   - active_loop: name_form
+
+- rule: checkslot
+  steps:
+  - action: name_form
+  - active_loop: name_form
+  
+
+# - rule: get ph_number
+#   steps: 
+#   - action: phone_form
+#   - active_loop: phone_form
+
+# - rule: get mail_id
+#   steps: 
+#   - action: mail_form
+#   - active_loop: mail_form
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: Submit form
+  condition:
+  - active_loop: name_form
+  steps:
+  - action: name_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_tq            # to show details to users
+  - action: action_tell_details #to record details 
+  - action: utter_ask_menu
+
+- rule: ask explore
+  steps:
+  - intent: oexplore
+  - action: utter_ask_explore
+
+- rule: ask courses
+  steps:
+  - intent: ocourse
+  - action: utter_ask_course
+
+- rule: ask shortcourse
+  steps:
+  - intent: shcourse
+  - action: utter_show_shcourse
+  - action: utter_tq_bye
+
+- rule: ask microcourse
+  steps:
+  - intent: microcourse
+  - action: utter_show_microcourse
+  - action: utter_tq_bye
+
+- rule: ask profcourse
+  steps:
+  - intent: profcourse
+  - action: utter_show_profcourse
+  - action: utter_tq_bye
+
+- rule: ask business 
+  steps:
+  - intent: o1
+  - action: utter_ask_B&M
+
+- rule: ask education 
+  steps:
+  - intent: o2
+  - action: utter_ask_ET
+
+- rule: ask infoandcommunication 
+  steps:
+  - intent: o3
+  - action: utter_ask_ICT
+
+- rule: ask socialandhumanity 
+  steps:
+  - intent: o4
+  - action: utter_ask_SSH
+
+- rule: ask researchandmethodology 
+  steps:
+  - intent: o5
+  - action: action_L1
+  # - action: utter_ask_RMI
+
+- rule: ask ICT2commingsoon 
+  steps:
+  - intent: ospecialict
+  - action: utter_ask_ICT2
+
+- rule: ask freecourses 
+  steps:
+  - intent: o6
+  - action: utter_ask_freecourses
+  
+- rule: ask business 
+  steps:
+  - intent: o7
+  - action: utter_show_business
+  - action: utter_tq_bye
+
+- rule: ask enterpship
+  steps:
+  - intent: o8
+  - action: utter_show_entrpship
+  - action: utter_tq_bye
+
+- rule: ask intnlbusiness
+  steps:
+  - intent: o9
+  - action: utter_show_intnlbusines
+  - action: utter_tq_bye
+
+- rule: ask market products
+  steps:
+  - intent: o10
+  - action: utter_show_marketproducts
+  - action: utter_tq_bye
+
+- rule: ask managarieleco
+  steps:
+  - intent: o11
+  - action: utter_show_managareieleconomic
+  - action: utter_tq_bye
+
+- rule: ask business venture
+  steps:
+  - intent: o12
+  - action: utter_show_businessventure
+  - action: utter_tq_bye
+
+- rule: ask supplychain
+  steps:
+  - intent: o13
+  - action: utter_show_supplychain
+  - action: utter_tq_bye
+
+- rule: ask create safe environment
+  steps:
+  - intent: o14
+  - action: utter_show_createsafeenvchildren
+  - action: utter_tq_bye
+
+- rule: ask digitalcontent creation
+  steps:
+  - intent: o15
+  - action: utter_show_Digiconcreation
+  - action: utter_tq_bye
+
+- rule: ask digital learn T&P
+  steps:
+  - intent: o16
+  - action: utter_show_DigilearnT&P
+  - action: utter_tq_bye
+
+- rule: ask digital enchanseHSP
+  steps:
+  - intent: o17
+  - action: utter_show_encahnceHSP
+  - action: utter_tq_bye
+
+- rule: ask howchildrenlearn
+  steps:
+  - intent: o18
+  - action: utter_show_howchildrenlearn
+  - action: utter_tq_bye
+
+- rule: ask pedagogicalSDlearn
+  steps:
+  - intent: o19
+  - action: utter_show_pedagogicalSDlearn
+  - action: utter_tq_bye
+
+- rule: ask positiveguidforchild
+  steps:
+  - intent: o20
+  - action: utter_show_positiveguidechild
+  - action: utter_tq_bye
+
+- rule: ask techfordigitallearn
+  steps:
+  - intent: o21
+  - action: utter_show_techfordigitallearn
+  - action: utter_tq_bye
+
+- rule: ask compprogram
+  steps:
+  - intent: o22
+  - action: utter_show_compprogram
+  - action: utter_tq_bye
+
+- rule: ask compsecurity
+  steps:
+  - intent: o23
+  - action: utter_show_compsecurity
+  - action: utter_tq_bye
+
+- rule: ask cryptography
+  steps:
+  - intent: o24
+  - action: utter_show_cryptography
+  - action: utter_tq_bye
+
+- rule: ask discretemaths
+  steps:
+  - intent: o25
+  - action: utter_show_discretemaths
+  - action: utter_tq_bye
+
+- rule: ask fundamentalict
+  steps:
+  - intent: o26
+  - action: utter_show_fundamentalICT
+  - action: utter_tq_bye
+
+- rule: ask ictprojectmanagement
+  steps:
+  - intent: o27
+  - action: utter_show_ictprojectmanage
+  - action: utter_tq_bye
+
+- rule: ask infosystemdesign
+  steps:
+  - intent: o28
+  - action: utter_show_infosystmdesign
+  - action: utter_tq_bye
+
+- rule: ask aqidah
+  steps:
+  - intent: o29
+  - action: utter_show_aqidah
+  - action: utter_tq_bye
+
+- rule: ask asastulisanjawi
+  steps:
+  - intent: o30
+  - action: utter_show_asastulisanjawi
+  - action: utter_tq_bye
+
+- rule: ask hajidanumrah
+  steps:
+  - intent: o31
+  - action: utter_show_hajidanumrah
+  - action: utter_tq_bye
+
+- rule: ask ict2coming
+  steps:
+  - intent: o34
+  - action: utter_show_ict2coming
+  - action: utter_tq_bye
+
+- rule: ask buildsupervise
+  steps:
+  - intent: o35
+  - action: utter_show_buildsupervise
+  - action: utter_tq_bye
+
+- rule: ask craeteasafeenvchild
+  steps:
+  - intent: o36
+  - action: utter_show_craeteasafeenvchild
+  - action: utter_tq_bye
+
+- rule: ask enchanehspartnership
+  steps:
+  - intent: o37
+  - action: utter_show_enchanehspartnership
+  - action: utter_tq_bye
+
+- rule: ask hajidanumrah2
+  steps:
+  - intent: o38
+  - action: utter_show_hajidanumrah2
+  - action: utter_tq_bye
+
+- rule: askhowchildrenslearn
+  steps:
+  - intent: o39
+  - action: utter_show_howchildrenslearn
+  - action: utter_tq_bye
+
+- rule: ask knowyourmarketnproduct
+  steps:
+  - intent: o40
+  - action: utter_show_knowyourmarketnproduct
+  - action: utter_tq_bye
+
+- rule: ask positiveguideforchild2
+  steps:
+  - intent: o41
+  - action: utter_show_positiveguideforchild2
+  - action: utter_tq_bye
+
+- rule: ask sustainswpartner
+  steps:
+  - intent: o42
+  - action: utter_show_sustainswpartner
+  - action: utter_tq_bye
+
+
+
+
+
+
+
+
+
+
+# - rule: ask course
+#   steps:
+#   - intent: o2
+#   - action: utter_o2
+#   - action: utter_ask_course2
+
+# - rule: ask course2
+#   steps:
+#   - intent: o3
+#   - action: utter_o3
+#   - action: utter_ask_course2
+
+# - rule: tell course
+#   steps:
+#   - intent: scourse
+#   - action: utter_scourse
+#   - action: utter_goodbye
+
+# - rule: tell course2
+#   steps:
+#   - intent: mcre
+#   - action: utter_mcre
+#   - action: utter_goodbye

@@ -1,0 +1,465 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - o1
+  - o2
+  - o3
+  - o4
+  - o5
+  - ospecialict
+  - o6
+  - o7
+  - o8
+  - o9
+  - o10
+  - o11
+  - o12
+  - o13
+  - o14
+  - o15
+  - o16
+  - o17
+  - o18
+  - o19
+  - o20
+  - o21
+  - o22
+  - o23
+  - o24
+  - o25
+  - o26
+  - o27
+  - o28
+  - o29
+  - o30
+  - o31
+  - o32
+  - o33
+  - o34
+  - o35
+  - o36
+  - o37
+  - o38
+  - o39
+  - o40
+  - o41
+  - o42
+  - oexplore
+  - ocourse
+  - shcourse
+  - microcourse
+  - profcourse
+  - scourse
+  - mcre
+  - validate_email
+  - myname
+
+entities:
+- name
+- ph_no
+- email
+
+slots:
+   name:
+     type: text
+     influence_conversation: true
+     mappings:
+     - type: from_text
+       conditions:
+       - active_loop: name_form
+         requested_slot: name
+   ph_no:
+      type: text
+      mappings:
+      - type: from_text
+        conditions:
+        - active_loop: name_form
+          requested_slot: ph_no
+   email:
+      type: text
+      mappings:
+      - type: from_text
+        conditions:
+        - active_loop: name_form
+          requested_slot: email
+
+forms:
+  name_form:
+    required_slots:
+        - name
+        - ph_no
+        - email
+        
+
+responses:
+  utter_greet:
+  - text: "Hey!How are you?"
+
+  utter_entername:
+  - text: "Enter your name"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_ask_deatils:
+  - text: "Please Enter Your Details:"
+
+  utter_ask_name:
+  - text: "Enter your name"
+
+  utter_ask_ph_no:
+  - text: "Enter your phone number"
+
+  utter_ask_email:
+  - text: "Enter your E-mail"
+
+  utter_tq:
+  - text: "Thank you for entering the details:
+          \n 
+          \n Your name:{name}
+          \n
+          \n Phone Number:{ph_no}
+          \n
+          \n E-mail:{email}"
+  
+  utter_sel_Explore:
+  - text: "If you want to explore you can choose from this "
+
+  utter_sel_Courses:
+  - text: "Great!! You can select from these type of courses "
+
+  utter_o1:
+  - text: "You selected Bussiness and Management "
+
+  utter_o2:
+  - text: "You selected Entrepreneurship and Innovation "
+
+  utter_o3:
+  - text: "You selected International Bussiness "
+
+  utter_scourse:
+  - text: "[Click Here for apply shortcourse ](https://myeduskills.com/course/index/2)"
+
+  utter_mcre:
+  - text: "[Click Here for apply microcredentials ](https://myeduskills.com/course/index/3)"
+  
+  utter_ask_menu:
+  - text: "You can explore courses or select type of course"
+    buttons:
+    - title: "Explore"
+      payload: "/oexplore"
+    - title: "Courses"
+      payload: "/ocourse"
+  
+  utter_ask_course:
+  - text: "You can select 3 type of courses"
+    buttons:
+    - title: "Short Courses "
+      payload: "/shcourse"
+    - title: "Micro-Courses"
+      payload: "/microcourse"
+    - title: "Proffesional Courses"
+      payload: "/profcourse"
+
+  utter_ask_explore:
+  - text: "These courses are available for you"
+    buttons:
+    - title: "Bussiness and Management"
+      payload: "/o1"
+    - title: "Education and Training"
+      payload: "/o2"
+    - title: "Information and Communication Technologies(ICT)"
+      payload: "/o3"
+    - title: "Social Science and Humanities "
+      payload: "/o4"
+    - title: "Research Methodology And Instruments"
+      payload: "/o5"
+    - title: "Information & Communication Technologies(ICT)"
+      payload: "/ospecialict"
+    - title: "Free Courses "
+      payload: "/o6"
+  
+
+  utter_ask_B&M:
+  - text: "You just selected Business & Management \n Here is your options"
+    buttons:
+    - title: "Business Communications"
+      payload: "/o7"
+    - title: "Enterpreneurship and innovations"
+      payload: "/o8"
+    - title: "International Business"
+      payload: "/o9"
+    - title: "Knowing Your Market and Products"
+      payload: "/o10"
+    - title: "Managerieal Economics" 
+      payload: "/o11"
+    - title: "New Business Venture"
+      payload: "/o12"
+    - title: "Supply Chain Management"
+      payload: "/o13"
+  
+  utter_ask_ET:
+  - text: "You just selected Education & Training \n Here is your options"
+    buttons:
+    - title: "Creating a Safe Environment for children"
+      payload: "/o14"
+    - title: "Digital Content Creation and Curation"
+      payload: "/o15"
+    - title: "Digital Learning Theories & Principles"
+      payload: "/o16"
+    - title: "Enhancing Home-School Partnerships"
+      payload: "/o17"
+    - title: "How Children Learn" 
+      payload: "/o18"
+    - title: "Pedagogical Stratergies for Digital Learning"
+      payload: "/o19"
+    - title: "Positive Guidance For Childerns"
+      payload: "/o20"
+    - title: "TechnoLogies For Digital Learning"
+      payload: "/o21"
+
+  utter_ask_ICT:
+  - text: "You just selected Information And Communication Technologies \n Here is your options"
+    buttons:
+    - title: "Computer Programming"
+      payload: "/o22"
+    - title: "Computer Security"
+      payload: "/o23"
+    - title: "Cryptography"
+      payload: "/o24"
+    - title: "Discrete Mathematics"
+      payload: "/o25"
+    - title: "Fundamental Concept of ICT" 
+      payload: "/o26"
+    - title: "ICT Project Management"
+      payload: "/o27"
+    - title: "Information System Analysis And Design"
+      payload: "/o28"
+    
+  
+  utter_ask_SSH:
+  - text: "You just selected Social Science And Humanities \n Here is your options"
+    buttons:
+    - title: "Aqidah"
+      payload: "/o29"
+    - title: "Asas Tulisan Jawi"
+      payload: "/o30"
+    - title: "Haji Dan Umrah"
+      payload: "/o31"
+    
+
+  utter_ask_RMI:
+  - text: "You just selected Research Methodology And Instruments \n Here is your options"
+    buttons:
+    - title: "Building the Supervisory Instruments"
+      payload: "/o32"
+    - title: "Sustaining the Supervisory Working Parternership"
+      payload: "/o33"
+    
+
+  utter_ask_ICT2:
+  - text: "You just selected Information And Communication Technologies  \n Here is your options"
+    buttons:
+    - title: "Coming Soon"
+      payload: "/o34"
+    
+  utter_ask_freecourses:
+  - text: "You just selected Free Courses \n Here is your options"
+    buttons:
+    - title: "Building the Supervisory Relationship"
+      payload: "/o35"
+    - title: "Creating a safer environment to children"
+      payload: "/o36"
+    - title: "Enhancing Home-School Partnerships"
+      payload: "/o37"
+    - title: "Haji Dan Umrah"
+      payload: "/o38"
+    - title: "How Children Learn" 
+      payload: "/o39"
+    - title: "Knowing Your Market And Projects "
+      payload: "/o40"
+    - title: "Positive Guidance For Childrens"
+      payload: "/o41"
+    - title: "Sustaining The Supervisory Working Relationship"
+      payload: "/o42"
+  
+  utter_show_shcourse:
+  - text: "[Click Here to apply for shortcourse ](http://myeduskills.com/course/summary/1)"
+
+  utter_show_microcourse:
+  - text: "[Click Here to apply for microcourse ](http://myeduskills.com/course/summary/2)"
+
+  utter_show_profcourse:
+  - text: "[Click Here to apply for professional course ](http://myeduskills.com/course/summary/4)"
+
+  utter_show_business:
+  - text: "[Click Here to apply ](http://myeduskills.com/coursedetails/index/12)"
+
+  utter_show_entrpship:
+  - text: "[Click Here to apply ](http://myeduskills.com/coursedetails/index/14)"
+
+  utter_show_intnlbusines:
+  - text: "[Click Here to apply ](http://myeduskills.com/coursedetails/index/17)"
+
+  utter_show_marketproducts:
+  - text: "[Click Here to apply ](http://myeduskills.com/coursedetails/index/3)"
+
+  utter_show_managareieleconomic:
+  - text: "[Click Here to apply ](http://myeduskills.com/coursedetails/index/13)"
+
+  utter_show_businessventure:
+  - text: "[Click Here to apply ](http://myeduskills.com/coursedetails/index/13)"
+
+  utter_show_supplychain:
+  - text: "[Click Here to apply ](http://myeduskills.com/coursedetails/index/15)"
+
+  utter_show_createsafeenvchildren:
+  - text: "[Click Here to apply ](http://myeduskills.com/coursedetails/index/49)"
+
+  utter_show_Digiconcreation:
+  - text: "[Click Here to apply ](http://myeduskills.com/coursedetails/index/53)"
+
+  utter_show_DigilearnT&P:
+  - text: "[Click Here to apply ](http://myeduskills.com/coursedetails/index/50)"
+
+  utter_show_encahnceHSP:
+  - text: "[Click Here to apply ](http://myeduskills.com/coursedetails/index/48)"
+
+  utter_show_howchildrenlearn:
+  - text: "[Click Here to apply ](http://myeduskills.com/coursedetails/index/46)"
+
+  utter_show_pedagogicalSDlearn:
+  - text: "[Click Here to apply ](http://myeduskills.com/coursedetails/index/52)"
+  
+  utter_show_positiveguidechild:
+  - text: "[Click Here to apply ](http://myeduskills.com/coursedetails/index/47)"
+  
+  utter_show_techfordigitallearn:
+  - text: "[Click Here to apply ](http://myeduskills.com/coursedetails/index/51)"
+
+  utter_show_compprogram:
+  - text: "[Click Here to apply ](http://myeduskills.com/coursedetails/index/36)"
+
+  utter_show_compsecurity:
+  - text: "[Click Here to apply ](http://myeduskills.com/coursedetails/index/35)"
+
+  utter_show_cryptography:
+  - text: "[Click Here to apply ](http://myeduskills.com/coursedetails/index/41)"
+
+  utter_show_discretemaths:
+  - text: "[Click Here to apply ](http://myeduskills.com/coursedetails/index/38)"
+
+  utter_show_fundamentalICT:
+  - text: "[Click Here to apply ](http://myeduskills.com/coursedetails/index/39)"
+
+  utter_show_ictprojectmanage:
+  - text: "[Click Here to apply ](http://myeduskills.com/coursedetails/index/37)"
+
+  utter_show_infosystmdesign:
+  - text: "[Click Here to apply ](http://myeduskills.com/coursedetails/index/40)"
+
+  utter_show_aqidah:
+  - text: "[Click Here to apply ](http://myeduskills.com/coursedetails/index/42)"
+
+  utter_show_asastulisanjawi:
+  - text: "[Click Here to apply ](http://myeduskills.com/coursedetails/index/43)"
+
+  utter_show_hajidanumrah:
+  - text: "[Click Here to apply ](http://myeduskills.com/coursedetails/index/8)"
+
+  utter_show_ict2coming:
+  - text: "[Comming Soon]"
+
+  utter_show_buildsupervise:
+  - text: "[Click Here to apply ](http://myeduskills.com/coursedetails/index/9)"
+
+  utter_show_craeteasafeenvchild:
+  - text: "[Click Here to apply ](http://myeduskills.com/coursedetails/index/49)"
+
+  utter_show_enchanehspartnership:
+  - text: "[Click Here to apply ](http://myeduskills.com/coursedetails/index/48)"
+
+  utter_show_hajidanumrah2:
+  - text: "[Click Here to apply ](http://myeduskills.com/coursedetails/index/8)"
+
+  utter_show_howchildrenslearn:
+  - text: "[Click Here to apply ](http://myeduskills.com/coursedetails/index/46)"
+  
+  utter_show_knowyourmarketnproduct:
+  - text: "[Click Here to apply ](http://myeduskills.com/coursedetails/index/3)"
+
+  utter_show_positiveguideforchild2:
+  - text: "[Click Here to apply ](http://myeduskills.com/coursedetails/index/47)"
+
+  utter_show_sustainswpartner:
+  - text: "[Click Here to apply ](http://myeduskills.com/coursedetails/index/10)"
+
+
+  utter_tq_bye:
+  - text: "Thank You. Have a great day:)"
+
+
+
+
+
+
+  
+  
+
+
+
+
+  # utter_ask_B&M:
+  # - text: "You just selected "Business & Management \n Here is your options"
+  #   buttons:
+  #   - title: "Business Communications"
+  #     url: "http://myeduskills.com/coursedetails/index/12"
+  #   - title: "Enterpreneurship and innovations"
+  #     url: "http://myeduskills.com/coursedetails/index/14"
+  #   - title: "International Business"
+  #     url: "http://myeduskills.com/coursedetails/index/17"
+  #   - title: "Knowing Your Market and Products"
+  #     url: "http://myeduskills.com/coursedetails/index/3"
+  #   - title: "Managerieal Economics" 
+  #     url: "http://myeduskills.com/coursedetails/index/16"
+  #   - title: "New Business Venture"
+  #     url: "http://myeduskills.com/coursedetails/index/13"
+  #   - title: "Supply Chain Management"
+  #     url: "http://myeduskills.com/coursedetails/index/15"
+
+
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+
+actions:
+- action_tell_details
+- action_validate_contact_info
+- action_name_info
+- action_ph_no_info
+- action_email_info
+- action_L1
+- action_name_print_info
+- action_name_get_info
+- validate_name_form

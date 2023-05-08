@@ -1,0 +1,42 @@
+version: "3.1"
+
+stories:
+
+# - story: get user name
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - action: utter_entername
+#   - intent: myname
+#   - action: action_name_get_info
+#   - action: action_name_print_info
+#   - action: utter_ask_menu
+  
+
+# - story: sad path 1
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: mood_unhappy
+#   - action: utter_cheer_up
+#   - action: utter_did_that_help
+#   - intent: affirm
+#   - action: utter_happy
+
+# - story: sad path 2
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: mood_unhappy
+#   - action: utter_cheer_up
+#   - action: utter_did_that_help
+#   - intent: deny
+#   - action: utter_goodbye
+
+# - story: sad path 2
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - action: name_form
+#   - action: action_validate_contact_info
+#   - active_loop: name_form

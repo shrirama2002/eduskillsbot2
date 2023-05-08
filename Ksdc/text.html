@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+  
+  <style>
+    .rw-carousel-container .rw-carousel-card .rw-carousel-card-image {
+width: 100%;
+object-fit: cover;
+display: block;
+background-color: #b5b5b5;
+cursor: pointer;
+height: 250px;
+}
+  </style>
+  <style>
+    .rw-conversation-container .rw-response {
+  background-color: #a9f56f;
+  color: #000;
+  border-radius: 0 15px 15px 15px;
+  padding: 11px 15px;
+  max-width: 215px;
+  text-align: left;
+  font-family: Inter,sans-serif;
+
+  font-family: cursive;
+}
+.rw-carousel-container .rw-carousel-card img{
+  width: 100px;
+
+}
+.rw-conversation-container .rw-header {
+  background-color:#8cf4e8;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  height: 85px;
+  font-family: Inter,sans-serif;
+  position: relative;
+  border-radius: 10px;
+  font-family: cursive;
+}
+.rw-conversation-container .rw-client {
+  background-color: #4bc1db;
+  color: #fff;
+  border-radius: 15px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+  padding: 11px 15px;
+  max-width: 215px;
+  text-align: left;
+  font-family: Inter,sans-serif;
+  background-color: #18d2b9;
+  margin-left: auto;
+  overflow-wrap: break-word;
+  font-family: cursive;
+}
+
+.rw-conversation-container .rw-reply {
+  -webkit-transition: box-shadow .3s ease,top .3s ease;
+  -moz-transition: box-shadow .3s ease,top .3s ease;
+  -o-transition: box-shadow .3s ease,top .3s ease;
+  transition: box-shadow .3s ease,top .3s ease;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  background-color: #fe134a;
+  border: 1px solid #fe13ce;
+  border-radius: 15px;
+  color: #f4f7f9;
+  padding: 4px 8px;
+  max-width: 215px;
+  min-height: 1.7em;
+  font-weight: 500;
+  text-align: center;
+  font-family: Inter,sans-serif;
+  cursor: pointer;
+  margin: .25em;
+  text-decoration: unset;
+  box-shadow: 0 .2px .7px -7px rgba(0,0,0,.277),0 .5px 1.8px -7px rgba(0,0,0,.369),0 1.2px 3.8px -7px rgba(0,0,0,.442),0 4px 13px -7px rgba(0,0,0,.64);
+  font-family: cursive;
+}
+.rw-launcher {
+  -webkit-animation-delay: 0;
+  -webkit-animation-duration: .5s;
+  -webkit-animation-name: slide-in;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-delay: 0;
+  -moz-animation-duration: .5s;
+  -moz-animation-name: slide-in;
+  -moz-animation-fill-mode: forwards;
+  animation-delay: 0;
+  animation-duration: .5s;
+  animation-name: slide-in;
+  animation-fill-mode: forwards;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1c97e4;
+  border: 0;
+  border-radius: 50%;
+  box-shadow: 0 2px 10px 1px #b5b5b5;
+  height: 60px;
+  margin: 0;
+  width: 60px;
+  box-sizing: border-box;
+}
+.rw-conversation-container .rw-avatar {
+    width: 40px;
+    height: 32px;
+    border-radius: 100%;
+    margin-right: 6px;
+    position: relative;
+    bottom: 5px;
+}
+.rw-conversation-container .rw-title {
+    font-size: 20px;
+    margin: 0;
+    font-family: cursive;
+    position: absolute;
+    left: 20px;
+    font-weight: 700;
+    color: #000;
+}
+.rw-conversation-container .rw-new-message {
+    font-size: 1em;
+    width: 100%;
+    border: 0;
+    background-color: #f4f7f9;
+    padding-left: 15px;
+    font-family: cursive;
+    resize: none;
+}
+.rw-conversation-container .rw-header .rw-avatar {
+    all: initial;
+    height: 63px;
+    width: 70px;
+    position: absolute;
+    top: 20px;
+    left: 1px;
+}
+.rw-message .rw-with-avatar .rw-avatar{
+  opacity: 0;
+  background: url(./cancel.png);
+}
+  
+
+  </style> 
+    <script>!(function () {
+        let e = document.createElement("script"),
+          t = document.head || document.getElementsByTagName("head")[0];
+          localStorage.clear();
+        (e.src =
+          "https://cdn.jsdelivr.net/npm/rasa-webchat@1.x.x/lib/index.js"),
+          // Replace 1.x.x with the version that you want
+          (e.async = !0),
+          (e.onload = () => {
+            window.WebChat.default(
+              {
+                initPayload:"/greet",
+                customData: { language: "en" },
+                socketUrl: "http://localhost:5005",
+                title:"Welcome to Asahil",
+                inputTextFieldHint: "Type here.....",
+                // profileAvatar: "./KSDC.png",
+                openLauncherImage: "./chat.png",
+                closeImage: "./x-button.png",
+                showMessageDate: false,
+                displayUnreadCount: true,
+                showFullScreenButton:true,
+                hiddeWhenNotConnected: false
+               
+
+                // add other props here
+                
+              },
+              null
+            );
+          }),
+          t.insertBefore(e, t.firstChild);
+          
+      })();
+      </script>
+      <input type="button"/>
+      <b>Chatbot testing</b>
+      <h4 class="rw-title rw-with-avatar"></h4>
+</body>
+</html>
